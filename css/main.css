@@ -4,6 +4,7 @@
     --secondary-color:#2c4755;
     --section-padding:60px;
     --section-background:#f6f6f6;
+    --main-transition:.3s;
 }
 /*End Variable*/
 /* Start Global Rules */
@@ -83,11 +84,12 @@ body{
     display: none;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index:1;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.3);
   }
+
   /* end backdrop */
 /* start header */
 .header{
@@ -95,7 +97,7 @@ body{
 }
 .header.scroll{
     position: fixed;
-    z-index: 10;
+    z-index: 1;
     width: 100vw;
     height: 100vh;
 }
@@ -141,7 +143,7 @@ body{
 }
 .header .links .icon span:nth-child(2){
     width: 60%;
-    transition: .3s;
+    transition: var(--main-transition);
 }
 .header .links .icon span:last-child{
     width: 100%;
@@ -153,10 +155,15 @@ body{
     margin: 0;
     position: absolute;
     right: 0;
-    z-index: 20;
+    z-index: 30;
     min-width: 200px;
     top: calc(100% + 15px);
     display: none;
+    cursor: pointer;
+}
+.links ul.show{
+    display: block;
+    transition: var(--main-transition);
 }
 @media(min-width:767px){
     .header {
@@ -190,7 +197,7 @@ body{
     padding: 15px;
     text-decoration: none;
     color: #333;
-    transition: .3s;
+    transition: var(--main-transition);
 }
 .header .links ul a:hover{
     padding-left: 20px;
@@ -361,6 +368,7 @@ body{
     grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
     grid-gap: 2rem;
     margin-top: 80px;
+    text-align: center;
  }
  .portfolio-content .card{
     background-color: #fff;

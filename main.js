@@ -2,15 +2,24 @@ let icon=document.querySelector('.icon');
 let ul=document.querySelector('.header .links ul');
 let backdrop=document.querySelector('.backdrop');
 
-icon.onclick=()=>{
-   ul.style.display="block";
-   backdrop.style.display="block";
-}
-
-backdrop.onclick=()=>{
-    ul.style.display="none";
+icon.addEventListener('click',function(){
+  ul.classList.toggle('show');
+  if(ul.classList.contains("show")){
+      backdrop.style.display="flex";
+  }else{
     backdrop.style.display="none";
- }
+
+  }
+})
+// icon.onclick=()=>{
+//    ul.style.display="block";
+//    backdrop.style.display="block";
+// }
+
+// backdrop.onclick=()=>{
+//     ul.style.display="none";
+//     backdrop.style.display="none";
+//  }
 
  /*start to make scroll effect*/
  let header=document.querySelector('.header');
@@ -39,21 +48,4 @@ function toggleDark(){
       }
   }
   
-  //scroll to top
-  let up =document.querySelector('.up');
-  if(window.scrollY >= 45){
-   up.style.display="block";
- } else{
-    up.style.display="none";
- }
-
- up.onclick=function(){
-   console.log(up)
- }
- up.addEventListener('click',()=>{
-   window.scrollTo({
-     left:0,
-     top:0,
-     behavior:"smooth",
-   })
- })  
+  
